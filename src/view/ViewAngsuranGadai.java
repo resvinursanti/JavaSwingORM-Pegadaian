@@ -8,6 +8,7 @@ package view;
 import controller.AngsuranGadaiController;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -79,6 +80,23 @@ public class ViewAngsuranGadai extends javax.swing.JInternalFrame {
             e1.printStackTrace();
         }
         setVisible(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                closing(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         TBLAngsuranGadai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -326,16 +344,16 @@ public class ViewAngsuranGadai extends javax.swing.JInternalFrame {
                     txtIDGadai.getText(),
                     txtIDCust.getText(),
                     txtTanggalAngsur.getDate().getTime()+"",
-                    Integer.parseInt(txtJumlahAngsur.getText()),
-                    Integer.parseInt(txtDenda.getText()));
+                    Long.parseLong(txtJumlahAngsur.getText()),
+                    Long.parseLong(txtDenda.getText()));
                     txtIDAngsuran.setEnabled(true);
         }else{
             hasil = cc.insert(txtIDAngsuran.getText(),
                     txtIDGadai.getText(),
                     txtIDCust.getText(),
                     txtTanggalAngsur.getDate().getTime()+"",
-                    Integer.parseInt(txtJumlahAngsur.getText()),
-                    Integer.parseInt(txtDenda.getText()));
+                    Long.parseLong(txtJumlahAngsur.getText()),
+                    Long.parseLong(txtDenda.getText()));
         }
         String pesan = "Gagal menambahkan data";
         if (hasil) {
@@ -399,6 +417,10 @@ public class ViewAngsuranGadai extends javax.swing.JInternalFrame {
         btnHapus.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDAngsuranKeyPressed
+
+    private void closing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_closing
+     // TODO add your handling code here:
+    }//GEN-LAST:event_closing
 
     public void reset() {
         txtIDAngsuran.setText("");

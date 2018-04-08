@@ -330,6 +330,10 @@ public class ViewGadai extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        String Status = "Belum Lunas";
+        if (txtSisaPinjaman1.getText().equals("0")){
+            Status = "Lunas";
+        }
         boolean hasil = false;
         if(!txtIDGadai.isEnabled()){
             hasil = gc.update(txtIDGadai.getText(),
@@ -337,9 +341,9 @@ public class ViewGadai extends javax.swing.JInternalFrame {
                 txtIDBarang.getText(),
                 Long.parseLong(txtJumlahPinjaman.getText()),
                 txtTanggalPengajuan.getDate().getTime()+"",
-                txtStatus.getText(),
-                Long.parseLong(txtStatus.getText()));
-            txtIDGadai.setEnabled(true);
+                Status,
+                Long.parseLong(txtSisaPinjaman1.getText()));
+                txtIDGadai.setEnabled(true);
         }else{
             hasil = gc.insert(txtIDGadai.getText(),
                 txtIDCust.getText(),
@@ -347,7 +351,7 @@ public class ViewGadai extends javax.swing.JInternalFrame {
                 Long.parseLong(txtJumlahPinjaman.getText()),
                 txtTanggalPengajuan.getDate().getTime()+"",
                 txtStatus.getText(),
-                Long.parseLong(txtStatus.getText()));
+                Long.parseLong(txtSisaPinjaman1.getText()));
         }
         String pesan = "Gagal menambahkan data";
         if (hasil) {

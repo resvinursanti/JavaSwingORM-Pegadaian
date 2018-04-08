@@ -37,7 +37,7 @@ public class AngsuranGadaiDAO {
     }
 
     public Object getById(String Id) {
-        return fdao.getById("from Angsurangadai where ID_ANGSURAN='" + Id + "'");
+        return fdao.getById("from Angsurangadai where id_angsuran='" + Id + "'");
     }
     public boolean update(Object object) {
         return fdao.insert(object);

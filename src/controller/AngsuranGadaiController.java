@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class AngsuranGadaiController {
     AngsuranGadaiDAO aDAO = new AngsuranGadaiDAO();
 
-public boolean insert(String idAngsuran, String idGadai, String idCust, String tglAngsur, Integer jmlAngsur, Integer denda )
+public boolean insert(String idAngsuran, String idGadai, String idCust, String tglAngsur, Long jmlAngsur, Long denda )
 {
     Angsurangadai a = new Angsurangadai();
     a.setIdAngsuran(idAngsuran);
@@ -33,7 +33,7 @@ public boolean insert(String idAngsuran, String idGadai, String idCust, String t
     return aDAO.insert(a);
 }
 
-public boolean update(String idAngsuran,String idGadai,  String idCust, String tglAngsur, Integer jmlAngsur, Integer denda)
+public boolean update(String idAngsuran,String idGadai,  String idCust, String tglAngsur, Long jmlAngsur, Long denda)
 {
     Angsurangadai a = new Angsurangadai();
     a.setIdAngsuran(idAngsuran);

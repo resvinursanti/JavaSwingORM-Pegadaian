@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.JInternalFrame;
+import javax.swing.plaf.DesktopPaneUI;
+
 /**
  *
  * @author TAMU
@@ -146,6 +149,12 @@ public class Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuFileClearWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileClearWindowActionPerformed
+    DesktopPane.removeAll();
+// Implementation #2
+// JInternalFrame[] elementFrames = myDesktopPane.getAllFrames();
+// for (int i = 0; i < elementFrames.length; i++) {
+// elementFrames[i].doDefaultCloseAction();
+// }
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuFileClearWindowActionPerformed
 
@@ -156,13 +165,19 @@ public class Frame extends javax.swing.JFrame {
 
     private void MenuEditTableAngsuranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEditTableAngsuranActionPerformed
         ViewAngsuranGadai a = new ViewAngsuranGadai();
+        ViewBarangGadai b = new ViewBarangGadai();
         a.show();
+        b.dispose();
         DesktopPane.add(a);
+        DesktopPane.remove(b);
+        MenuEditTableAngsuran.setEnabled(false);
+        MenuEditTableBarang.setEnabled(true);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuEditTableAngsuranActionPerformed
 
     private void MenuEditTableAngsuranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuEditTableAngsuranMouseClicked
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_MenuEditTableAngsuranMouseClicked
 
     private void MenuFileCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileCloseActionPerformed
@@ -171,8 +186,13 @@ public class Frame extends javax.swing.JFrame {
 
     private void MenuEditTableBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEditTableBarangActionPerformed
         ViewBarangGadai b = new ViewBarangGadai();
+        ViewAngsuranGadai a = new ViewAngsuranGadai();
         b.show();
+        a.dispose();
         DesktopPane.add(b);
+        DesktopPane.remove(a);
+        MenuEditTableBarang.setEnabled(false);
+        MenuEditTableAngsuran.setEnabled(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_MenuEditTableBarangActionPerformed
 

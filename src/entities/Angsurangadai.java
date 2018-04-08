@@ -45,9 +45,9 @@ public class Angsurangadai implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date tglAngsur;
     @Column(name = "JML_ANGSUR")
-    private Integer jmlAngsur;
+    private Long jmlAngsur;
     @Column(name = "DENDA")
-    private Integer denda;
+    private Long denda;
     @JoinColumn(name = "ID_CUST", referencedColumnName = "ID_CUST")
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer idCust;
@@ -78,19 +78,19 @@ public class Angsurangadai implements Serializable {
         this.tglAngsur = tglAngsur;
     }
 
-    public Integer getJmlAngsur() {
+    public Long getJmlAngsur() {
         return jmlAngsur;
     }
 
-    public void setJmlAngsur(Integer jmlAngsur) {
+    public void setJmlAngsur(Long jmlAngsur) {
         this.jmlAngsur = jmlAngsur;
     }
 
-    public Integer getDenda() {
+    public Long getDenda() {
         return denda;
     }
 
-    public void setDenda(Integer denda) {
+    public void setDenda(Long denda) {
         this.denda = denda;
     }
 
